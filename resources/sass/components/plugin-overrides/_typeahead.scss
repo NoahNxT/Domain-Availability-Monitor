@@ -1,0 +1,16 @@
+// Typeahead
+
+.typeahead.tt-input,
+.typeahead.tt-hint {
+  @extend .form-control;
+  background-color: $input-bg !important;
+  // RTL fix
+  direction: ltr;
+}
+.tt-menu {
+  @extend .dropdown-menu;
+  .tt-suggestion {
+    @extend .dropdown-item;
+    cursor: pointer;
+  }
+}

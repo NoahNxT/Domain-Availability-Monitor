@@ -1,0 +1,125 @@
+/*
+* NobleUI - Laravel Admin Dashboard Template v2.0
+* Copyright © 2021 NobleUI
+* Licensed under ThemeForest License
+*/
+
+// Theme style for demo4 (Horizontal Menu - Dark, Dark-RTL)
+
+
+
+
+// Custom variables
+@import './variables';
+
+
+// Bootstrap stylesheets
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Bootstrap layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+
+// Bootstrap helpers
+@import "~bootstrap/scss/helpers";
+
+// Bootstrap utilities
+@import './utilities';
+@import "~bootstrap/scss/utilities/api";
+
+
+// Custom mixins
+@import './mixins/animation';
+@import './mixins/buttons';
+@import './mixins/misc';
+@import './mixins/width';
+
+// Core styles
+@import './background';
+@import './reset';
+@import './functions';
+@import './misc';
+@import './helpers';
+@import './typography';
+@import './demo';
+@import './spinner';
+
+// Layout
+@import './horizontal-wrapper';
+@import './navbar';
+@import './layouts';
+
+// Custom components
+@import "./components/badges";
+@import "./components/bootstrap-alert";
+@import "./components/breadcrumbs";
+@import "./components/buttons";
+@import "./components/cards";
+@import "./components/dashboard";
+@import "./components/dropdown";
+@import "./components/forms";
+@import "./components/icons";
+@import "./components/nav";
+@import "./components/pagination";
+@import "./components/tables";
+@import "./components/timeline";
+@import "./components/chat";
+@import "./components/auth";
+
+// Email app
+@import './components/email/inbox';
+
+// 3rd-Party plugin overrides
+@import "./components/plugin-overrides/ace";
+@import "./components/plugin-overrides/apex-charts";
+@import "./components/plugin-overrides/bootstrap-datepicker";
+@import "./components/plugin-overrides/data-tables";
+@import "./components/plugin-overrides/dropify";
+@import "./components/plugin-overrides/dropzone";
+@import "./components/plugin-overrides/full-calendar";
+@import "./components/plugin-overrides/jquery-flot";
+@import "./components/plugin-overrides/morrisjs";
+@import "./components/plugin-overrides/peity";
+@import "./components/plugin-overrides/perfect-scrollbar";
+@import "./components/plugin-overrides/sweet-alert";
+@import "./components/plugin-overrides/select2";
+@import "./components/plugin-overrides/simplemde";
+@import "./components/plugin-overrides/tags-input";
+@import "./components/plugin-overrides/tempusdominus-bootstrap-4";
+@import "./components/plugin-overrides/tinymce";
+@import "./components/plugin-overrides/typeahead";
+@import "./components/plugin-overrides/wizard";
+
+
+// Custom scss
+@import "./custom";
