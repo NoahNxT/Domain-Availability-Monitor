@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +10,45 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'auth:web'], function () {
+    Route::get('/home', function () {
+        return view('home');
+    });
+});
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
+
+
+Route::group(['middleware' => 'auth:web'], function () {
+    Route::get('blank-page', function () {
+        return view('pages.general.blank-page');
+    });
+    Route::get('faq', function () {
+        return view('pages.general.faq');
+    });
+    Route::get('invoice', function () {
+        return view('pages.general.invoice');
+    });
+    Route::get('profile', function () {
+        return view('pages.general.profile');
+    });
+    Route::get('pricing', function () {
+        return view('pages.general.pricing');
+    });
+    Route::get('timeline', function () {
+        return view('pages.general.timeline');
+    });
+});
+
+
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
+// 404 for undefined routes
+Route::any('/{page?}', function () {
+    return View::make('error.404');
+})->where('page', '.*');
