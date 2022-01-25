@@ -50,9 +50,15 @@
         <div class="container">
             <ul class="nav page-navigation">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/home') }}">
-                        <i class="link-icon" data-feather="box"></i>
-                        <span class="menu-title">Home</span>
+                    <a class="nav-link" href="{{ url('/dashboard') }}">
+                        <i class="link-icon" data-feather="home"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/domains') }}">
+                        <i class="link-icon" data-feather="link"></i>
+                        <span class="menu-title">Domains</span>
                     </a>
                 </li>
 

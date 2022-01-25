@@ -10,10 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\DomainController;
+
 Route::group(['middleware' => 'auth:web'], function () {
-    Route::get('/home', function () {
-        return view('home');
+    Route::get('/dashboard', function () {
+        return view('views.dashboard');
     });
+
+    Route::resource('domains', DomainController::class);
 });
 
 Route::get('/', function () {

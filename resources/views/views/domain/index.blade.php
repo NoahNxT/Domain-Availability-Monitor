@@ -22,7 +22,7 @@
                                 you'll be notified on the mediums you've set-up in your settings.</p>
                         </div>
                         <div class="col-md-auto">
-                            <button type="button" class="btn btn-success mb-1 mb-md-0">Add Do</button>
+                            <a type="button" href="{{ route('domains.create') }}" class="btn btn-success mb-1 mb-md-0">Add Domain</a>
                         </div>
                     </div>
                 </div>
