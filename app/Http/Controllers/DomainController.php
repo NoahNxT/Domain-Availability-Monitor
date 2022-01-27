@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDomainRequest;
 use App\Models\Domain;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -20,7 +21,10 @@ class DomainController
      */
     public function index()
     {
-        return view('views.domain.index');
+        $user = User::find(Auth::id());
+        $domains = $user->domains ?? null;
+
+        return view('views.domain.index')->with('domains', $domains);
     }
 
     /**
@@ -36,15 +40,23 @@ class DomainController
      */
     public function store(StoreDomainRequest $request)
     {
+        // https://github.com/io-developer/php-whois
         $removeChar = ["https://", "http://", "/"];
         $domainFormatted = str_replace($removeChar, "", $request->validated()['domain']);
         try {
             $whois = Factory::get()->createWhois();
-            $info = $whois->loadDomainInfo($domainFormatted)->getData();
 
-            if (!$info) {
-                return Redirect::back()->withErrors(["Null if domain available"]);
+            if (is_null($whois->loadDomainInfo($domainFormatted))) {
+                $domain = new Domain;
+                $domain->domain = $domainFormatted;
+                $domain->status = 'available';
+                $domain->save();
+                $domain->users()->attach(Auth::id());
+
+                return redirect()->route('domains.index');
             }
+
+            $info = $whois->loadDomainInfo($domainFormatted)->getData();
 
             $domain = new Domain;
             $domain->domain = $domainFormatted;

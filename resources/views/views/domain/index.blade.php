@@ -22,13 +22,15 @@
                                 you'll be notified on the mediums you've set-up in your settings.</p>
                         </div>
                         <div class="col-md-auto">
-                            <a type="button" href="{{ route('domains.create') }}" class="btn btn-success mb-1 mb-md-0">Add Domain</a>
+                            <a type="button" href="{{ route('domains.create') }}" class="btn btn-success mb-1 mb-md-0">Add
+                                Domain</a>
                         </div>
                     </div>
                 </div>
                 <div class="table-responsive pt-3">
                     <table class="table table-bordered">
                         <thead>
+
                         <tr>
                             <th>
                                 URL
@@ -42,23 +44,58 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>
-                                https://testdomain.com
-                            </td>
-                            <td>
-                                <span class="badge bg-success">Available</span>
-                            </td>
-                            <td>
-                                June 21, 2010
-                            </td>
-                        </tr>
+                        @foreach($domains as $domain)
+                            <tr>
+                                <td>
+                                    {{ $domain->domain }}
+                                </td>
+                                <td>
+                                    @switch($domain->status)
+                                        @case('not available')
+                                        <span class="badge bg-danger">{{$domain->status}}</span>
+                                        @break
+
+                                        @case('clientdeleteprohibited')
+                                        <span class="badge bg-secondary">{{$domain->status}}</span>
+                                        @break
+
+                                        @case('clienttransferprohibited')
+                                        <span class="badge bg-warning">{{$domain->status}}</span>
+                                        @break
+
+                                        @case('available')
+                                        <span class="badge bg-success">{{$domain->status}}</span>
+                                        @break
+
+                                        @default
+                                        <span class="badge bg-primary">{{$domain->status}}</span>
+                                    @endswitch
+                                </td>
+                                <td>
+                                    {{ $domain->updated_at }}
+                                </td>
+                                <td class="text-center">
+                                    <i class="link-icon mr-auto" data-feather="loader"></i>
+                                    <i class="link-icon mr-auto" data-feather="edit-2"></i>
+                                    <i class="link-icon ml-5" data-feather="trash"></i>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
+                @if($domains->isEmpty())
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h6 class="card-title">Whoops!</h6>
+                                <p class="text-muted mb-2">It looks like you haven't added any monitored domain?</p>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
-    </div>
     </div>
 
 @endsection
