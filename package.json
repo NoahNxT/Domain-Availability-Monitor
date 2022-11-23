@@ -11,7 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.22.0",
-        "browser-sync": "^2.27.5",
+        "browser-sync": "^2.27.10",
         "browser-sync-webpack-plugin": "^2.3.0",
         "cross-env": "^7.0",
         "jquery": "3.6.0",
