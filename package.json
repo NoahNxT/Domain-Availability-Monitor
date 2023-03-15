@@ -65,7 +65,7 @@
         "simplemde": "^1.11.2",
         "sweetalert2": "^11.1.7",
         "tempusdominus-bootstrap-4": "^5.39.0",
-        "tinymce": "^5.9.2",
+        "tinymce": "^5.10.7",
         "typeahead.js": "^0.11.1"
     }
 }
